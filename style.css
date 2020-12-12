@@ -1,0 +1,58 @@
+body{
+    background-color:lightgrey;
+}
+
+body::after{
+    content: "";
+    background: url("texturedbackground.png");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
+
+.mainDiv{
+    border:1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 20px 5px 0px rgba(0,0,0,0.75);
+    width:1280px;
+    height:720px;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.mainDiv img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.buttonposition{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonposition > button{
+    padding:10px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}

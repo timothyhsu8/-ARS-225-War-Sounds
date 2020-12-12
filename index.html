@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <title>It's Dangerous Here</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var imageArray = ["23.png", "13.png", "12.png"];
+        var colorArray = ["#a3a3a3", "#616161", "#111111"];
+        var currentPerson = 1;
+        var numColor = 0;
+        var imageString = "123.png";
+
+        function moveLeft(){
+            if(currentPerson != 0){
+                document.getElementById("target" + currentPerson).style.opacity = "0%";
+                currentPerson--;
+                document.getElementById("target" + currentPerson).style.opacity = "100%";
+            }
+        }
+
+        function moveRight(){
+            if(currentPerson != 2){
+                document.getElementById("target" + currentPerson).style.opacity = "0%";
+                currentPerson++;
+                document.getElementById("target" + currentPerson).style.opacity = "100%";
+            }
+        }
+
+        function changeImage(){
+
+            if(imageString.indexOf((currentPerson+1) + "") != -1){
+                imageString = imageString.replace((currentPerson+1), '');
+
+                if(imageString === ".png"){
+                    imageString = "0.png";
+                    document.getElementById("mainImage").src = imageString;
+                    
+                    if(numColor < colorArray.length)
+                        document.body.style.backgroundColor = colorArray[numColor];
+                    numColor++;
+                }
+
+                else{
+                    document.getElementById("mainImage").src = imageString;
+                    
+                    if(numColor < colorArray.length)
+                        document.body.style.backgroundColor = colorArray[numColor];
+                    numColor++;
+                }
+            }
+        }
+
+    </script>
+<body>
+    <audio controls autoplay>
+        <source src="warsounds.ogg" type="audio/ogg">
+        <source src="warsounds.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    <div class="mainDiv"> <img id="mainImage" src="123.png"></img> </div>
+    
+<div class="flex-container">  <div style="opacity: 0%;" id="target0">1</div>  <div id="target1">2</div> <div style="opacity: 0%;" id="target2">3</div>  </div>
+ 
+
+
+    <div class="button-flex">                </div>
+    <div class="buttonposition"> <button onclick="moveLeft()">MOVE LEFT</button><button onclick="changeImage()" style="text-align:center;">ACTION</button> <button onclick="moveRight()">MOVE RIGHT</button></div>
+
+
+</body>
+</head>
